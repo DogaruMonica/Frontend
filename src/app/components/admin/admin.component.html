@@ -1,0 +1,15 @@
+<body>
+
+<div class="sidenav">
+  <button class="sidebutton" *ngFor="let classroom of clasrooms"  (click)="onSelect(classroom.id)"> {{classroom.name}} </button>
+  <button class="sidebutton">9 B </button>
+  <button class="sidebutton">5 C </button>
+  <button id="addclass" >+</button>
+</div>
+
+<div class="main">
+
+  <app-classroom [idClassroom]="idClassroom"></app-classroom>
+</div>
+
+</body>
