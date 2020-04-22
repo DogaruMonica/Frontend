@@ -1,0 +1,30 @@
+<body>
+<h2 id="title">{{classroom.name}}</h2>
+<div class="container">
+  <table style="width: 50% ;background-color: #add1d9">
+    <thead>
+    <tr>
+      <th class="column">First Name </th>
+      <th class="column">Last Name</th>
+      <th class="column">Email</th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr  *ngFor="let pupil of pupils">
+      <td class="cell"> <input class="in" type="text"  value= "{{pupil.firstname}}"[(ngModel)]="pupil.firstname" ></td>
+      <td  class="cell"> <input  class="in" type="text" value= "{{pupil.lastname}}"[(ngModel)]="pupil.lastname"></td>
+      <td class="cell" > <input class="in"  type="text" value= "{{pupil.email}}"[(ngModel)]="pupil.email"></td>
+    </tbody>
+  </table>
+  <button id="addrow" >+</button>
+</div>
+
+
+
+
+
+
+</body>
