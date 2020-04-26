@@ -13,16 +13,32 @@
     </thead>
 
     <tbody>
-    <tr  *ngFor="let pupil of pupils">
-      <td class="cell"> <input class="in" type="text"  value= "{{pupil.firstname}}"[(ngModel)]="pupil.firstname" ></td>
+
+    <tr  *ngFor="let pupil of pupils" class="tr1" (click)="select(pupil.id)" [class.selected]="idselected==pupil.id" >
+      <td class="cell"> <input class="in"  type="text"  value= "{{pupil.firstname}}"[(ngModel)]="pupil.firstname" ></td>
       <td  class="cell"> <input  class="in" type="text" value= "{{pupil.lastname}}"[(ngModel)]="pupil.lastname"></td>
-      <td class="cell" > <input class="in"  type="text" value= "{{pupil.email}}"[(ngModel)]="pupil.email"></td>
+      <td class="cell" > <input class="in"  type="text" value= "{{pupil.user.email}}"[(ngModel)]="pupil.user.email"></td>
     </tbody>
   </table>
-  <button id="addrow" >+</button>
+  <button id="addrow" (click)="activateAddComp()" >+</button>
+  <div id="buttons">
+  <button class="actions" (click)="updatePupil()" >Update</button>
+    <button class="actions" (click)="deletePupil()" >Delete </button> </div>
+
+
+  <div id="addcomp" *ngIf="addComp==1">
+
+
+        <input class="int" type="text"  value= "{{p0.firstname}}"[(ngModel)]="p0.firstname">
+       <input  class="int" type="text" value= "{{p0.lastname}}"[(ngModel)]="p0.lastname" >
+       <input class="int"  type="text" value= "{{p0.user.email}}"[(ngModel)]="p0.user.email">
+       <button id="addPupil" (click)="addPupil()" >Add</button>
+
+  </div>
+
+
+
 </div>
-
-
 
 
 

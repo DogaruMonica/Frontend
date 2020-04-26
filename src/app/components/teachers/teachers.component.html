@@ -1,0 +1,47 @@
+
+<body>
+<h2 *ngIf="idSubject!=undefined" id="title">{{subject.name}} teachers</h2>
+<div class="container" *ngIf="idSubject!=undefined">
+  <table style="width: 50% ;background-color: #add1d9">
+    <thead>
+    <tr>
+      <th class="column">First Name </th>
+      <th class="column">Last Name</th>
+      <th class="column">Email</th>
+
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <tr  *ngFor="let teacher of teachers" class="tr1" (click)="select(teacher.id)" [class.selected]="idselected==teacher.id" >
+      <td class="cell"> <input class="in"  type="text"  value= "{{teacher.firstname}}"[(ngModel)]="teacher.firstname" ></td>
+      <td  class="cell"> <input  class="in" type="text" value= "{{teacher.lastname}}"[(ngModel)]="teacher.lastname"></td>
+      <td class="cell" > <input class="in"  type="text" value= "{{teacher.user.email}}"[(ngModel)]="teacher.user.email"></td>
+    </tbody>
+  </table>
+  <button id="addrow" (click)="activateAddComp()" >+</button>
+  <div id="buttons">
+    <button class="actions" (click)="updateTeacher()" >Update</button>
+    <button class="actions" (click)="deleteTeacher()" >Delete </button> </div>
+
+
+  <div id="addcomp" *ngIf="addComp==1">
+
+
+    <input class="int" type="text"  value= "{{t0.firstname}}"[(ngModel)]="t0.firstname">
+    <input  class="int" type="text" value= "{{t0.lastname}}"[(ngModel)]="t0.lastname" >
+    <input class="int"  type="text" value= "{{t0.user.email}}"[(ngModel)]="t0.user.email">
+    <button id="addPupil" (click)="addTeacher()" >Add</button>
+
+  </div>
+
+
+
+</div>
+
+
+
+
+</body>

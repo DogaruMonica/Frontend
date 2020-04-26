@@ -1,6 +1,6 @@
 #title{
-  padding: 0px 0px 0px 0px;
-  margin: 24px 0px 0px 0px;
+  padding: 0px 0px 20px 0px;
+  margin: 24px 0px  10px 100px;
   color: #141828;
 
 }
@@ -20,19 +20,20 @@
   background-color: #d8faff;
 }
 .container{
-  margin: 0;
+  margin-left: 70px;
   font-family: sans-serif;
   font-weight: 100;
   position: absolute;
   top: 15%;
   left: 15%;
+  margin-top: 20px
 
 }
 
 
 .tr1:hover{
   color: #f1f1f1;
-   background-color: #d8faff;
+  background-color: #d8faff;
 
 }
 
@@ -78,7 +79,7 @@ thead{
   position: absolute;
   right: 5px;
   background-color:  #76a7bb;
-   margin:15px 0px 3px 250px;
+  margin:15px 0px 3px 250px;
   font-size: 30px;
   color: #fff9fc;
   width: 40px;
@@ -92,7 +93,7 @@ thead{
 #addcomp{
   margin-top: 60px;
 
- border: 2px solid #add1d9;
+  border: 2px solid #add1d9;
   padding-bottom:5px;
 
 }

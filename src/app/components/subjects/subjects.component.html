@@ -1,0 +1,20 @@
+<p>subjects works!</p>
+<div id="contain">
+<div class="sidenav">
+  <button class="sidebutton" *ngFor="let subject of subjects"  (click)="onSelect(subject.id)"> {{subject.name}} </button>
+  <button id="subjects"  (click)="switch()">Classrooms</button>
+  <div id="addClassroom" *ngIf="activatedAdd==1">
+    <input class="int" type="text"  value= "{{subject.name}}"[(ngModel)]="subject.name">
+    <button id="tinyadd" (click)="addSubject()" >+</button>
+  </div>
+  <button id="addclass" (click)="activateAdd()">+</button>
+  <button id="delclass" (click)="deleteSubject()" >-</button>
+
+</div>
+
+  <div class="main">
+
+    <app-teachers [idSubject]="idSubject"></app-teachers>
+
+  </div>
+</div>

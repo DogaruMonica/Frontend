@@ -3,11 +3,11 @@ import {User} from './User';
 export class Pupil {
 
   id: number;
-  email: string;
-  role: string;
+  user: User;
   firstname: string;
   lastname: string;
 
-  editable: boolean;
 
 }
+
+

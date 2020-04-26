@@ -1,15 +1,25 @@
 <body>
 
-<div class="sidenav">
+<div class="sidenav" *ngIf="showadmin==1">
   <button class="sidebutton" *ngFor="let classroom of clasrooms"  (click)="onSelect(classroom.id)"> {{classroom.name}} </button>
-  <button class="sidebutton">9 B </button>
-  <button class="sidebutton">5 C </button>
-  <button id="addclass" >+</button>
+
+  <div id="addClassroom" *ngIf="activatedAdd==1">
+    <input class="int" type="text"  value= "{{classroom.name}}"[(ngModel)]="classroom.name">
+    <button id="tinyadd" (click)="addClassroom()" >+</button>
+  </div>
+  <button id="addclass" (click)="activateAdd()">+</button>
+  <button id="delclass" (click)="deleteClassroom()" >-</button>
+  <div id="subjectsdiv">
+    <button id="subjects"  (click)="switch()">Subjects</button>
+  </div>
 </div>
 
-<div class="main">
+<div class="main" *ngIf="showadmin==1">
 
   <app-classroom [idClassroom]="idClassroom"></app-classroom>
-</div>
 
+</div>
+<div *ngIf="showadmin==-1">
+  <app-subjects></app-subjects>
+</div>
 </body>
