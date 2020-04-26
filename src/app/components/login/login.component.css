@@ -30,7 +30,7 @@ body {
   margin: 0 auto;
 }
 
-.textInput {
+.form-control {
   display: flex;
   position: relative;
   align-self: center;
@@ -40,7 +40,6 @@ body {
   text-indent: 4px;
   line-height: 27px;
 }
-
 .buttonDiv {
   display: flex;
   position: relative;
@@ -48,7 +47,7 @@ body {
   align-self: center;
 }
 
-.loginButton {
+.btn {
   width: 100px;
   height: 27px;
   border: none;
@@ -66,4 +65,15 @@ body {
   font-family: Verdana;
   margin-top: 100px;
   margin-bottom: 10px;
+}
+.invalid {
+ margin:  0px;
+  padding: 5px;
+  color: red;
+  font-family: Verdana;
+  font-size: small;
+}
+
+.redText {
+  border:1.5px solid red;
 }

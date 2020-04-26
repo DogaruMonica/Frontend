@@ -1,14 +1,33 @@
-<body>
-<div class="box">
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <body>
+  <div class="box">
 
-  <div class="content">
-    <p class="title">Welcome</p>
-    <input class="textInput" placeholder="username" [(ngModel)]="username">
-    <input class="textInput" type="password" placeholder="password" [(ngModel)]="password">
-    <div class="buttonDiv">
-      <button class="loginButton" (click)="getUser(username,password)">Login</button>
+    <div class="content">
+
+      <p class="title">Welcome</p>
+      <input type="text" formControlName="username" class="form-control" placeholder="username"
+             [ngClass]="{ 'is-invalid': submitted && user.username.errors,'redText':error || submitted && !this.user.username.valid}">
+      <div *ngIf="submitted && user.username.errors" class="invalid-feedback">
+        <div *ngIf="user.username.errors.required">
+          <p class="invalid"> Username is required</p>
+        </div>
+      </div>
+      <input type="text" formControlName="password" class="form-control"
+             [ngClass]="{ 'is-invalid': submitted && user.password.errors ,'redText':error  || submitted &&!this.user.password.valid}"
+             type="password" placeholder="password">
+      <div *ngIf="submitted && user.password.errors" class="invalid-feedback">
+        <div *ngIf="user.password.errors.required">
+          <p class="invalid"> Password is required!</p>
+        </div>
+      </div>
+      <div *ngIf="error && !(user.password.errors || user.username.errors )">
+        <p class="invalid">Wrong Username or Password!</p>
+      </div>
+      <div class="buttonDiv">
+        <button class="btn btn-primary mr-1">Login</button>
+      </div>
+
     </div>
-
   </div>
-</div>
-</body>
+  </body>
+</form>

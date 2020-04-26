@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ClassroomComponent} from './components/classroom/classroom.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 
@@ -25,7 +25,8 @@ const APP_ROUTES: Routes = [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
