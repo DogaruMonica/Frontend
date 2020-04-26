@@ -5,11 +5,11 @@ import {AppComponent} from './app.component';
 import {AdminComponent} from './components/admin/admin.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ClassroomComponent} from './components/classroom/classroom.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginComponent} from './components/login/login.component';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
-import { SubjectsComponent } from './components/subjects/subjects.component';
-import { TeachersComponent } from './components/teachers/teachers.component';
+import {HttpClientModule} from "@angular/common/http";
+import {SubjectsComponent} from "./components/subjects/subjects.component";
+import {TeachersComponent} from "./components/teachers/teachers.component";
 
 const APP_ROUTES: Routes = [
 
@@ -30,8 +30,8 @@ const APP_ROUTES: Routes = [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
-
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
