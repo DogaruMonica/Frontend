@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit, OnChanges {
 
     this.loginService.getUser(username, password).subscribe(
       data => {
-        console.log(data);
+        if (data != null) {
         localStorage.setItem('userId', JSON.stringify(data.id));
         if (data.role == "admin") {
           this.router.navigateByUrl('/admin');
@@ -61,10 +61,9 @@ export class LoginComponent implements OnInit, OnChanges {
         } else {
           this.router.navigateByUrl('/pupil');
         }
-
-      },
-      () => {
-        this.error = true;
+      }else{
+          this.error = true;
+        }
       }
     );
 
