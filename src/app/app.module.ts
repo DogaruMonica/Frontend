@@ -7,11 +7,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {ClassroomComponent} from './components/classroom/classroom.component';
 import {FormsModule} from '@angular/forms';
 import {LoginComponent} from './components/login/login.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { SubjectsComponent } from './components/subjects/subjects.component';
+import { TeachersComponent } from './components/teachers/teachers.component';
 
 const APP_ROUTES: Routes = [
 
   {path: 'admin', component: AdminComponent},
+  {path: 'subjects', component: SubjectsComponent},
   {path: '', component: LoginComponent}];
 
 @NgModule({
@@ -19,12 +22,15 @@ const APP_ROUTES: Routes = [
     AppComponent,
     AdminComponent,
     ClassroomComponent,
-    LoginComponent
+    LoginComponent,
+    SubjectsComponent,
+    TeachersComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
+
     FormsModule
   ],
   providers: [],

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Classroom} from '../../domain/Classroom';
+import {ClassroomService} from '../../services/classroom/classroom.service';
+import {Pupil} from '../../domain/Pupil';
 
 @Component({
   selector: 'app-admin',
@@ -7,21 +9,63 @@ import {Classroom} from '../../domain/Classroom';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-   clasrooms: Classroom[];
-   idClassroom: number=-1;
+  clasrooms: Classroom[];
+  classroom: Classroom={id:-1, teachers: null, pupils: null ,name:"Name"}
+  idClassroom: number = -1;
+  activatedAdd: number = -1;
+  activatesubjects:number= -1;
+  showadmin:number=1;
 
-  constructor() {
-   const c1: Classroom={id:1, pupils: null, teachers: null, name: "8 A"}
-   const c2: Classroom={id:2, pupils: null, teachers: null, name: "5 B"}
-   const c3: Classroom={id:3, pupils: null, teachers: null, name: "7 C"}
-   this.clasrooms=[c1 ,c2,c3];
+
+  constructor(private classroomService: ClassroomService) {
+
   }
 
   ngOnInit() {
-  }
-  onSelect(id:number){
-    this.idClassroom=id;
+    this.update();
   }
 
+  onSelect(id: number) {
+    this.idClassroom = id;
+  }
 
+  activateAdd() {
+    this.activatedAdd = 1;
+  }
+
+  update() {
+   this.getClassrooms()
+  }
+  getClassrooms(){
+    this.classroomService.getClassrooms().subscribe(classrooms => {
+
+      this.clasrooms = classrooms;
+      this.idClassroom=classrooms[0].id;
+
+
+    });
+  }
+  addClassroom(){
+    this.classroomService.addClassroom(this.classroom).subscribe(()=>{
+      this.activatedAdd=-1;
+      this.update();
+    })
+
+  }
+
+  deleteClassroom(){
+    this.classroomService.deleteClassroom(this.idClassroom).subscribe(()=>{
+      this.idClassroom=this.clasrooms[0].id;
+      this.update();
+    })
+
+  }
+  activateSubjects(){
+    this.activatesubjects=1;
+  }
+  switch(){
+    this.showadmin=-1;
+    this.update();
+
+  }
 }
