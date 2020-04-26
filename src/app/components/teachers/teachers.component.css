@@ -1,0 +1,117 @@
+#title{
+  padding: 0px 0px 20px 0px;
+  margin: 24px 0px  10px 100px;
+  color: #141828;
+
+}
+
+.in{
+  border:0px;
+  text-align: center;
+  font-family: Arial;
+  background: transparent;
+  font-size: 17px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+
+}
+.selected{
+  color: #f1f1f1;
+  background-color: #d8faff;
+}
+.container{
+  margin-left: 70px;
+  font-family: sans-serif;
+  font-weight: 100;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  margin-top: 20px
+
+}
+
+
+.tr1:hover{
+  color: #f1f1f1;
+  background-color: #d8faff;
+
+}
+
+#buttons{
+  float:right;
+  margin: 10px 50px 0px 0px ;
+}
+.actions{
+
+  margin: 5px 12px 2px 7px;
+  border-radius: 20px;
+  padding: 10px 15px 10px 15px;
+  border: 0px ;
+  background-color:  #76a7bb;
+
+  font-size: 15px;
+  color: #fff9fc;
+}
+.actions:hover{
+  color: #f1f1f1;
+  background-color: #317c94;
+}
+
+.column{
+  padding: 5px 0px 2px 0px;
+  margin: 0px 0px 0px 0px;
+}
+.cell{
+
+  padding: 0px 0px 3px 0px;
+  margin: 0px 0px 0px 0px;
+}
+table, th, td {
+  border: 1px solid #92a3b1;
+  border-collapse: collapse;
+}
+thead{
+  background-color: #76a7bb;
+}
+#addrow {
+  border-radius: 50%;
+  border: 0px;
+  position: absolute;
+  right: 5px;
+  background-color:  #76a7bb;
+  margin:15px 0px 3px 250px;
+  font-size: 30px;
+  color: #fff9fc;
+  width: 40px;
+  height: 40px;
+}
+#addrow:hover{
+  color: #f1f1f1;
+  background-color: #317c94;
+}
+
+#addcomp{
+  margin-top: 60px;
+
+  border: 2px solid #add1d9;
+  padding-bottom:5px;
+
+}
+#addPupil{
+  margin: 5px 0px 2px 20px;
+  border-radius: 20px;
+  padding: 15px 15px 15px 15px;
+  border: 0px ;
+  background-color: #cff5fd;
+}
+
+.int{
+  border-radius: 20px;
+  padding: 5px 5px 5px 5px;
+  border: 0px ;
+  text-align: center;
+  background-color: #bde1e9;
+  margin: 0px 0px 2px 2px
+
+}
+
