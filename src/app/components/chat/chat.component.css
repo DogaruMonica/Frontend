@@ -1,0 +1,139 @@
+.messagesContainer{
+  display: flex;
+  width: 600px;
+  height: 600px;
+  background-color: #bbccda;
+  border: 1px solid #2a455a;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.scrollContainer{
+  display: flex;
+  position: relative;
+  overflow: auto;
+  flex-direction: column;
+  height: 550px;
+  margin: 0px;
+}
+
+.messages{
+  display: flex;
+  position: relative;
+  height: auto;
+  width: auto;
+  flex-direction: column;
+  min-height: 50px;
+  height: auto;
+  padding: 5px;
+}
+.container{
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+}
+
+.myContainer{
+  display: flex;
+  position: relative;
+  align-self: flex-end;
+  flex-direction: row;
+}
+.messageContainer{
+  display: flex;
+  position: relative;
+  margin: 0px 0px;
+  background-color: #317c94;
+  border: 1px solid  #2a455a;
+  border-radius: 10px;
+  flex-direction: column;
+  padding: 4px 10px;
+  min-width: 100px;
+}
+.message{
+  display: flex;
+  position: relative;
+  align-items: center;
+  align-content: center;
+}
+
+.text{
+  display: flex;
+  position: relative;
+  color:#bde1e9;
+  font-family: Verdana;
+  font-size: 12px;
+  margin: 0px;
+}
+.date{
+  position: relative;
+  display: flex;
+  align-self: center;
+  color:#2a455a;
+  font-family: Verdana;
+  font-size: 10px;
+  margin-bottom: 0px;
+  margin-top: 5px ;
+  margin-left: 50%;
+
+}
+.time{
+  position: relative;
+  display: flex;
+  align-self: flex-start;
+  color:#2a455a;
+  font-family: Verdana;
+  font-size: 10px;
+  margin-bottom: 0px;
+  margin-top: 10px ;
+}
+.user{
+  color: #2a455a;
+  font-family: Verdana;
+  font-size: 12px;
+  margin: 12px 2px;
+}
+
+.inputContainer{
+  display: flex;
+  position: relative;
+  min-height: 70px;
+  padding: 6px;
+}
+.textBox{
+  display: flex;
+  position: relative;
+  min-height: 60px;
+  padding: 1px;
+}
+.textarea{
+  display: flex;
+  position: relative;
+  font-family: Verdana;
+  width: 500px;
+  max-width: 500px;
+  max-height: 70px;
+  min-height: 70px;
+  min-width: 500px;
+  resize: none;
+  text-indent: 5px;
+  font-size: 12px;
+  color: #141828;
+  border: none;
+  border-radius: 10px;
+}
+
+.button{
+  align-self: center;
+  width: 80px;
+  height: 27px;
+  border: none;
+  color: white;
+  margin-left: 4px;
+  background-color: #317c94;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+}
