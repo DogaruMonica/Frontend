@@ -1,0 +1,140 @@
+body{
+  position: relative;
+  display: flex;
+  left: 60%;
+  width: 500px;
+  height: 500px;
+  top: 40%;
+}
+
+.container{
+  margin: 0;
+  font-family: sans-serif;
+  font-weight: 100;
+  position: relative;
+  min-height: 200px;
+  width: 500px;
+  top: 12%;
+}
+
+.in{
+  border:0px;
+  text-align: left;
+  font-family: Arial;
+  background: transparent;
+  font-size: 17px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 5px;
+
+}
+
+.tr1:hover{
+  color: #f1f1f1;
+  background-color: #d8faff;
+
+}
+.column{
+  padding: 5px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  height: 20px;
+}
+.multipleActions{
+  display: flex;
+  align-self: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  right: 5px;
+}
+.actions{
+
+  margin: 5px 12px 2px 7px;
+  border-radius: 20px;
+  padding: 10px 15px 10px 15px;
+  border: 0px ;
+  background-color:  #76a7bb;
+  font-size: 15px;
+  color: #fff9fc;
+}
+.actions:hover{
+  color: #f1f1f1;
+  background-color: #317c94;
+}
+
+thead{
+  background-color: #76a7bb;
+  height: 90px;
+}
+
+th, td {
+  border: 1px solid #92a3b1;
+  border-collapse: collapse;
+}
+th{
+  font-size: 30px;
+}
+tr{
+  height: 40px;
+}
+table{
+  width: 100% ;
+  background-color: #add1d9;
+  margin-left: 0px;
+  border: 1px solid #92a3b1;
+  border-collapse: collapse;
+  min-height: 50px;
+}
+.cell{
+  padding: 0px 0px 3px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+.int{
+  border-radius: 20px;
+  padding: 5px 5px 5px 5px;
+  border: 0px ;
+  text-align: center;
+  background-color: #bde1e9;
+  margin: 0px 0px 2px 2px;
+  font-size: 15px;
+}
+.selectCont{
+  display: flex;
+  position: relative;
+  display: flex;
+  top: 50px;
+  width: 100%;
+}
+
+.subjectSelect{
+  border-radius: 20px;
+  width: 120px;
+  height: 25px;
+}
+
+.addrow{
+  border-radius: 50%;
+  border: 0px;
+  position: relative;
+  background-color:  #bde1e9;
+  font-size: 20px;
+  color: #141828;
+  width: 30px;
+  height: 30px;
+  margin-left: 6px;
+  margin-top: 0px;
+}
+.addComp:hover{
+  color: #f1f1f1;
+  background-color: #317c94;
+}
+
+.addComp{
+  border-radius: 50%;
+  border: 0px;
+  background-color:  #76a7bb;
+  font-size: 30px;
+  color: #fff9fc;
+  width: 40px;
+  height: 40px;
+
+}

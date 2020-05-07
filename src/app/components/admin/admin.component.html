@@ -14,12 +14,15 @@
   </div>
 </div>
 
+
 <div class="main" *ngIf="showadmin==1">
 
   <app-classroom [idClassroom]="idClassroom"></app-classroom>
-
 </div>
 <div *ngIf="showadmin==-1">
   <app-subjects></app-subjects>
+</div>
+<div *ngIf="showadmin==1">
+<app-add-subject-to-classroom></app-add-subject-to-classroom>
 </div>
 </body>

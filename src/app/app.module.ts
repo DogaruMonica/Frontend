@@ -11,6 +11,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {TeachersComponent} from "./components/teachers/teachers.component";
 import {ChatComponent} from './components/chat/chat.component';
+import { AddSubjectToClassroomComponent } from './components/add-subject-to-classroom/add-subject-to-classroom.component';
 
 const APP_ROUTES: Routes = [
 
@@ -28,7 +29,8 @@ const APP_ROUTES: Routes = [
     LoginComponent,
     SubjectsComponent,
     TeachersComponent,
-    ChatComponent
+    ChatComponent,
+    AddSubjectToClassroomComponent
   ],
   imports: [
     BrowserModule,

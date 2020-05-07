@@ -1,0 +1,41 @@
+<body>
+
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th class="column">Subjects</th>
+      <th class="column">Teachers</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let obj of subjectsTeacher" class="tr1">
+      <td class="cell"><input class="in" type="text" value="{{obj.subjectName}}" [(ngModel)]="obj.subjectName"></td>
+      <td class="cell"><input class="in" type="text" value="{{obj.teacherName}}" [(ngModel)]="obj.teacherName"></td>
+    </tbody>
+  </table>
+
+  <div class="multipleActions">
+    <button class="actions" (click)="updatePupil()">Update</button>
+    <button class="actions" (click)="deletePupil()">Delete</button>
+    <button class="addComp" (click)="activateAddComp()">+</button>
+  </div>
+  <div class="selectCont" *ngIf="addComp==1">
+    <form [formGroup]="subjectForm">
+      <select formControlName="subject" (change)="chooseSubject($event)" class="int" [(ngModel)]="subjectValue">
+        <option value="" selected hidden> Subject</option>
+        <option *ngFor="let subject of subjects">{{subject.name}}</option>
+      </select>
+    </form>
+
+    <form [formGroup]="teacherForm" style="margin-left: 5px">
+      <select formControlName="teacher" (change)="chooseTeacher($event)" class="int" [(ngModel)]="teacherValue">
+        <option value="" selected hidden> Subject</option>
+        <option *ngFor="let teacher of filteredTeaches">{{teacher.lastname}} {{teacher.firstname}}</option>
+      </select>
+    </form>
+    <button class="addrow" (click)="deactivateAddComp()">+</button>
+  </div>
+</div>
+</body>
