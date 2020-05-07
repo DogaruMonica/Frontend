@@ -17,7 +17,7 @@ export class TeachersComponent implements OnInit,OnChanges {
   teachers: Teacher[];
   idselected: number;
   addComp: number=-1;
-  u0:User={id:-1,email: "example@mail.com",password: "parola1",role: "teacher"}
+  u0:User={id:-1,email: "example@mail.com",password: "parola1",pupil: null ,role: "teacher"}
   t0:Teacher={id:-1,user: this.u0,  firstname: "First Name" ,lastname: "Last Name", classrooms: null, subjects: null}
 
   constructor(private teacherService: TeacherService,private subjectsService: SubjectsService) { }

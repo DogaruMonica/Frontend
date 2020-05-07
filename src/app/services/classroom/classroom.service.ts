@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Classroom} from '../../domain/Classroom';
+import {ClassroomSubjectChatroom} from '../../domain/ClassroomSubjectChatroom';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,10 @@ export class ClassroomService {
     const url = 'http://localhost:8080/classroom/'+idClassroom;
     return this.http.delete(url,this.httpOptions);
   }
+
+  getClassroomSubjectChatrooms (idClassroom:number): Observable<ClassroomSubjectChatroom[]>{
+    const url = 'http://localhost:8080/classroom/classroomSubjectChatroom/' + idClassroom;
+    return this.http.get<ClassroomSubjectChatroom[]>(url, this.httpOptions);
+  }
+
 }

@@ -25,8 +25,8 @@ export class ClassroomComponent implements OnInit,OnChanges {
 
 
 
-   u0:User={id:0,email: "example@mail.com",password: "parola1",role: "pupil"}
-   p0:Pupil={id:-1,user: this.u0,  firstname: "First Name" ,lastname: "Last Name"}
+   u0:User={id:0,email: "example@mail.com",password: "parola1", pupil: null, role: "pupil"}
+   p0:Pupil={id:-1,user: this.u0,  firstname: "First Name" ,classroom: null,lastname: "Last Name"}
 
 
   constructor(private classroomService: ClassroomService, private pupilService: PupilService,public parent: AdminComponent) {}
