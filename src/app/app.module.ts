@@ -12,6 +12,7 @@ import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {TeachersComponent} from "./components/teachers/teachers.component";
 import { TeacherDashboardComponent } from './components/teacher-dashboard/teacher-dashboard.component';
 import { PupilDashboardComponent } from './components/pupil-dashboard/pupil-dashboard.component';
+import {ChatComponent} from './components/chat/chat.component';
 
 const APP_ROUTES: Routes = [
 
@@ -19,7 +20,10 @@ const APP_ROUTES: Routes = [
   {path: 'subjects', component: SubjectsComponent},
   {path: 'teacher', component: TeacherDashboardComponent},
   {path: 'pupil', component: PupilDashboardComponent},
-  {path: '', component: LoginComponent}];
+  {path: '', component: LoginComponent},
+
+  {path: 'chat', component: ChatComponent}
+]
 
 @NgModule({
   declarations: [
@@ -30,7 +34,9 @@ const APP_ROUTES: Routes = [
     SubjectsComponent,
     TeachersComponent,
     TeacherDashboardComponent,
-    PupilDashboardComponent
+    PupilDashboardComponent,
+    TeachersComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

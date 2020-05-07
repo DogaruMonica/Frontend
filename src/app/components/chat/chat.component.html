@@ -1,0 +1,35 @@
+<div class="messagesContainer" >
+
+  <div class="scrollContainer" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div *ngFor="let msg of messages">
+      <p class="date" *ngIf="setDate(getDate(msg.dateTime))">{{getDate(msg.dateTime)}}</p>
+    <div class="messages" >
+      <div class="container" *ngIf="msg.userId!=inputMessage.userId">
+        <p class="user">{{msg.email}}</p>
+        <div class="messageContainer">
+          <div class="message">
+            <p class="text">{{msg.message}}</p>
+          </div>
+          <p class="time">{{getTime(msg.dateTime)}}</p>
+        </div>
+      </div>
+
+      <div class="myContainer" *ngIf="msg.userId==inputMessage.userId">
+        <div class="messageContainer" style="background-color: #76a7bb; border-color: #317c94">
+          <div class="message">
+            <p class="text" style="color:#2a455a">{{msg.message}}</p>
+          </div>
+          <p class="time" style="right: 0px; align-self: flex-end">{{getTime(msg.dateTime)}}</p>
+        </div>
+        <p class="user">Me</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="inputContainer">
+    <div class="textBox">
+      <textarea class="textarea" [value]="value" [(ngModel)]="value" (keydown.enter)="onCLick()"></textarea>
+    </div>
+    <button class="button" (click)="onCLick()">Send</button>
+  </div>
+</div>
