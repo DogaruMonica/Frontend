@@ -10,11 +10,15 @@ import {LoginComponent} from './components/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {TeachersComponent} from "./components/teachers/teachers.component";
+import { TeacherDashboardComponent } from './components/teacher-dashboard/teacher-dashboard.component';
+import { PupilDashboardComponent } from './components/pupil-dashboard/pupil-dashboard.component';
 
 const APP_ROUTES: Routes = [
 
   {path: 'admin', component: AdminComponent},
   {path: 'subjects', component: SubjectsComponent},
+  {path: 'teacher', component: TeacherDashboardComponent},
+  {path: 'pupil', component: PupilDashboardComponent},
   {path: '', component: LoginComponent}];
 
 @NgModule({
@@ -24,7 +28,9 @@ const APP_ROUTES: Routes = [
     ClassroomComponent,
     LoginComponent,
     SubjectsComponent,
-    TeachersComponent
+    TeachersComponent,
+    TeacherDashboardComponent,
+    PupilDashboardComponent
   ],
   imports: [
     BrowserModule,
