@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {WebsocketService} from '../../services/webSocket/websocket.service';
 import {Message} from '../../domain/Message';
 
@@ -7,7 +7,7 @@ import {Message} from '../../domain/Message';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit,OnChanges {
   @Input() chatid: number = -1;
   messages: Message[];
   inputMessage: Message;
@@ -24,6 +24,9 @@ export class ChatComponent implements OnInit {
     this.service.eventEmitter.subscribe(() => {
       this.getMessages();
     }, {}, {});
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.ngOnInit();
   }
 
   setDate(date: string): boolean {
