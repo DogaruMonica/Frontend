@@ -13,6 +13,7 @@ import {TeachersComponent} from "./components/teachers/teachers.component";
 import { TeacherDashboardComponent } from './components/teacher-dashboard/teacher-dashboard.component';
 import { PupilDashboardComponent } from './components/pupil-dashboard/pupil-dashboard.component';
 import {ChatComponent} from './components/chat/chat.component';
+import { AddSubjectToClassroomComponent } from './components/add-subject-to-classroom/add-subject-to-classroom.component';
 
 const APP_ROUTES: Routes = [
 
@@ -21,7 +22,6 @@ const APP_ROUTES: Routes = [
   {path: 'teacher', component: TeacherDashboardComponent},
   {path: 'pupil', component: PupilDashboardComponent},
   {path: '', component: LoginComponent},
-
   {path: 'chat', component: ChatComponent}
 ]
 
@@ -36,7 +36,8 @@ const APP_ROUTES: Routes = [
     TeacherDashboardComponent,
     PupilDashboardComponent,
     TeachersComponent,
-    ChatComponent
+    ChatComponent,
+    AddSubjectToClassroomComponent
   ],
   imports: [
     BrowserModule,
