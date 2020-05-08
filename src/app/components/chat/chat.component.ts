@@ -18,6 +18,7 @@ export class ChatComponent implements OnInit,OnChanges {
   constructor(private service: WebsocketService) {
   }
 
+
   ngOnInit(): void {
     this.inputMessage = new Message(this.chatid, +localStorage.getItem('userId'), null, '', '');
     this.getMessages();
