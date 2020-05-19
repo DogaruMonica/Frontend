@@ -1,0 +1,25 @@
+
+<div style="">
+  <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;" >{{pupil.firstname}}</p>
+
+</div>
+
+
+
+<div id="materii"  *ngFor="let subchat of subjchats">
+  {{subchat.subject.name}}
+</div>
+
+
+<div id="contain">
+  <div class="sidenav">
+    <button class="sidebutton" *ngFor="let subchat of subjchats"  (click)="onSelect(subchat.chatroom.id)"> {{subchat.subject.name}} </button>
+
+  </div>
+
+</div>
+
+  <div class="main">
+    <app-chat class="container"[chatid]="selectedId"></app-chat>
+
+  </div>

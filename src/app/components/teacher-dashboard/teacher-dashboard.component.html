@@ -1,0 +1,19 @@
+
+<div id="contain">
+  <div class="sidenav">
+    <button class="sidebutton" *ngFor="let subclaschat of lista"  (click)="onSelect(subclaschat.chatroom.id)"> {{subclaschat.subject.name}} {{subclaschat.classroom.name}} </button>
+
+
+  </div>
+
+  <div class="main">
+
+
+    <div class="main">
+      <h2 style="margin: 0px 0px 20px 0px; padding: 5px 5px 5px 5px ; font-family: Arial;"> Welcome Mr. {{teacher.lastname}} !</h2>
+      <app-chat class="container"[chatid]="selectedId"></app-chat>
+
+    </div>
+
+  </div>
+</div>

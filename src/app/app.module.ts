@@ -10,6 +10,8 @@ import {LoginComponent} from './components/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
 import {SubjectsComponent} from "./components/subjects/subjects.component";
 import {TeachersComponent} from "./components/teachers/teachers.component";
+import { TeacherDashboardComponent } from './components/teacher-dashboard/teacher-dashboard.component';
+import { PupilDashboardComponent } from './components/pupil-dashboard/pupil-dashboard.component';
 import {ChatComponent} from './components/chat/chat.component';
 import { AddSubjectToClassroomComponent } from './components/add-subject-to-classroom/add-subject-to-classroom.component';
 
@@ -17,6 +19,8 @@ const APP_ROUTES: Routes = [
 
   {path: 'admin', component: AdminComponent},
   {path: 'subjects', component: SubjectsComponent},
+  {path: 'teacher', component: TeacherDashboardComponent},
+  {path: 'pupil', component: PupilDashboardComponent},
   {path: '', component: LoginComponent},
   {path: 'chat', component: ChatComponent}
 ]
@@ -28,6 +32,9 @@ const APP_ROUTES: Routes = [
     ClassroomComponent,
     LoginComponent,
     SubjectsComponent,
+    TeachersComponent,
+    TeacherDashboardComponent,
+    PupilDashboardComponent,
     TeachersComponent,
     ChatComponent,
     AddSubjectToClassroomComponent
