@@ -1,0 +1,38 @@
+<body>
+
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th class="column">Subjects</th>
+      <th class="column">Teachers</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let obj of teacherSubjectClassroom"   class="tr1">
+      <td class="cell"><input class="in" type="text" value="{{obj.subject.name}}" ></td>
+      <td class="cell"><input class="in" type="text" value="{{obj.teacher.lastname}} {{obj.teacher.firstname}}" ></td>
+    </tbody>
+  </table>
+
+  <div class="multipleActions">
+    <button class="actions" (click)="updatePupil()">Update</button>
+    <button class="actions" (click)="deletePupil()">Delete</button>
+    <button class="addComp" (click)="activateAddComp()">+</button>
+  </div>
+  <div class="selectCont" *ngIf="addComp==1">
+      <select (change)="chooseSubject()" class="int" value="subjectValue.name" [(ngModel)]="subjectValue">
+        <option value="" selected hidden> Subject</option>
+        <option *ngFor="let subject of subjects" [ngValue]="subject">{{subject.name}}</option>
+      </select>
+
+
+      <select style="margin-left: 5px" (change)="chooseTeacher()" class="int" [(ngModel)]="teacherValue">
+        <option value="" selected hidden> Subject</option>
+        <option *ngFor="let teacher of filteredTeaches" [ngValue]="teacher" >{{teacher.lastname}} {{teacher.firstname}}</option>
+      </select>
+    <button class="addrow" (click)="addTeacherSubject()">+</button>
+  </div>
+</div>
+</body>
