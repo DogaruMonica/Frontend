@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {SubjectsService} from "../../services/subjects/subjects.service";
 import {Subject} from "../../domain/Subject";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {SubjectTeacher} from "../../domain/SubjectTeacher";
+import {SubjectTeacherClassroom} from "../../domain/SubjectTeacherClassroom";
 import {Teacher} from "../../domain/Teacher";
 import {TeacherService} from "../../services/teacher/teacher.service";
+import {TeacherSubjectService} from "../../services/teacherSubject/teacher-subject.service";
 
 
 export const _filter = (opt: string[], value: string): string[] => {
@@ -18,69 +19,59 @@ export const _filter = (opt: string[], value: string): string[] => {
   templateUrl: './add-subject-to-classroom.component.html',
   styleUrls: ['./add-subject-to-classroom.component.css']
 })
-export class AddSubjectToClassroomComponent implements OnInit {
-
+export class AddSubjectToClassroomComponent implements OnInit,OnChanges {
+  @Input() idClassroom: number = -1;
   subjects: Subject[];
   teachers: Teacher[];
-  subjectsTeacher: SubjectTeacher[];
-  subjectValue: string;
-  teacherValue: string;
+
+  subjectValue: Subject;
+  teacherValue: Teacher;
+
   filteredTeaches: Teacher[];
   addComp: number;
-  subjectForm: FormGroup = this._formBuilder.group({
-    subject: '',
-  });
-  teacherForm: FormGroup = this._formBuilder.group({
-    teacher: '',
-  });
+  teacherSubjectClassroom: SubjectTeacherClassroom[];
 
-  constructor(private subjectsService: SubjectsService, private teacherService: TeacherService, private _formBuilder: FormBuilder) {
+  constructor(private subjectsService: SubjectsService, private teacherService: TeacherService, private _formBuilder: FormBuilder
+              ,private teacherSubjectService: TeacherSubjectService) {
   }
 
   ngOnInit() {
-    this.subjectsTeacher = [new SubjectTeacher("", "")];
-    this.getTeachers();
+    this.getTeachers()
+    this.getTeacherSubject();
+    this.subjectValue =new Subject();
+    this.teacherValue =new Teacher();
     this.addComp = 0;
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.ngOnInit();
+  }
+  getTeacherSubject(){
+    this.teacherSubjectService.getTeacherSubject(this.idClassroom).subscribe(data=>{
+      this.teacherSubjectClassroom=data;
 
-  chooseSubject(event) {
-    this.subjectValue = event.target.value;
-    this.subjectForm.get('subject').setValue(this.subjectValue)
-    this.filteredTeaches = this._filterTeachers(this.subjectValue);
+    })
+  }
+  chooseSubject() {
+    console.log(this.subjectValue.name);
+    this.filteredTeaches = this._filterTeachers(this.subjectValue.name);
   }
 
-  chooseTeacher(event) {
-    this.teacherValue = event.target.value;
-    this.teacherForm.get('teacher').setValue(this.teacherValue)
-
+  chooseTeacher() {
+    console.log(this.teacherValue);
   }
 
-  updatePupil() {
-
-  }
-
-  deletePupil() {
-
-  }
 
   activateAddComp() {
     this.addComp = 1;
     this.getSubjects();
   }
 
-  deactivateAddComp() {
-    this.subjectsTeacher = this.subjectsTeacher.filter(({ teacherName }) => teacherName !== "");
-    this.subjectsTeacher.push(new SubjectTeacher(this.subjectValue, this.teacherValue));
-    this.subjectValue="";
-    this.teacherValue="";
+  addTeacherSubject() {
+    this.teacherSubjectService.addTeacherSubjectToClass(this.teacherValue.id,this.subjectValue.id,this.idClassroom).subscribe(data=>{
+     this.teacherSubjectClassroom = data;
+      this.ngOnInit();
+    });
     this.addComp = 0;
-  }
-
-  private _filterSubjects(value: string): Subject[] {
-    if (value) {
-      return this.subjects
-        .filter(group => group.name.toLocaleLowerCase().startsWith(value));
-    }
   }
 
   private _filterTeachers(value: string): Teacher[] {
@@ -102,7 +93,9 @@ export class AddSubjectToClassroomComponent implements OnInit {
     this.teacherService.getTeachers().subscribe(teachers => {
       this.teachers = teachers;
     })
+
     return this.teachers;
+
 
   }
 

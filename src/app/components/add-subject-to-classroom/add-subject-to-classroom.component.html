@@ -10,9 +10,9 @@
     </thead>
 
     <tbody>
-    <tr *ngFor="let obj of subjectsTeacher" class="tr1">
-      <td class="cell"><input class="in" type="text" value="{{obj.subjectName}}" [(ngModel)]="obj.subjectName"></td>
-      <td class="cell"><input class="in" type="text" value="{{obj.teacherName}}" [(ngModel)]="obj.teacherName"></td>
+    <tr *ngFor="let obj of teacherSubjectClassroom"   class="tr1">
+      <td class="cell"><input class="in" type="text" value="{{obj.subject.name}}" ></td>
+      <td class="cell"><input class="in" type="text" value="{{obj.teacher.lastname}} {{obj.teacher.firstname}}" ></td>
     </tbody>
   </table>
 
@@ -22,20 +22,17 @@
     <button class="addComp" (click)="activateAddComp()">+</button>
   </div>
   <div class="selectCont" *ngIf="addComp==1">
-    <form [formGroup]="subjectForm">
-      <select formControlName="subject" (change)="chooseSubject($event)" class="int" [(ngModel)]="subjectValue">
+      <select (change)="chooseSubject()" class="int" value="subjectValue.name" [(ngModel)]="subjectValue">
         <option value="" selected hidden> Subject</option>
-        <option *ngFor="let subject of subjects">{{subject.name}}</option>
+        <option *ngFor="let subject of subjects" [ngValue]="subject">{{subject.name}}</option>
       </select>
-    </form>
 
-    <form [formGroup]="teacherForm" style="margin-left: 5px">
-      <select formControlName="teacher" (change)="chooseTeacher($event)" class="int" [(ngModel)]="teacherValue">
+
+      <select style="margin-left: 5px" (change)="chooseTeacher()" class="int" [(ngModel)]="teacherValue">
         <option value="" selected hidden> Subject</option>
-        <option *ngFor="let teacher of filteredTeaches">{{teacher.lastname}} {{teacher.firstname}}</option>
+        <option *ngFor="let teacher of filteredTeaches" [ngValue]="teacher" >{{teacher.lastname}} {{teacher.firstname}}</option>
       </select>
-    </form>
-    <button class="addrow" (click)="deactivateAddComp()">+</button>
+    <button class="addrow" (click)="addTeacherSubject()">+</button>
   </div>
 </div>
 </body>

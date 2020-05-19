@@ -4,7 +4,7 @@ body{
   left: 60%;
   width: 500px;
   height: 500px;
-  top: 40%;
+  top: 0px;
 }
 
 .container{
@@ -14,7 +14,7 @@ body{
   position: relative;
   min-height: 200px;
   width: 500px;
-  top: 12%;
+  top: 5%;
 }
 
 .in{
