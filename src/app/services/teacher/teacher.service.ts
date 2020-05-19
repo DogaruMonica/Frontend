@@ -4,6 +4,8 @@ import {Subject} from '../../domain/Subject';
 import {Observable} from 'rxjs';
 import {User} from '../../domain/User';
 import {Teacher} from '../../domain/Teacher';
+import {ClassroomSubjectChatroom} from '../../domain/ClassroomSubjectChatroom';
+import {Pupil} from '../../domain/Pupil';
 
 @Injectable({
   providedIn: 'root'
@@ -49,4 +51,20 @@ export class TeacherService {
     const url = 'http://localhost:8080/teacher/';
     return this.http.get(url, this.httpOptions);
   }
+
+  getChatroomsForTeachers(id:number ): Observable<ClassroomSubjectChatroom[]> {
+    const url = 'http://localhost:8080/teacher/'+id+'/chatrooms';
+    return this.http.get<ClassroomSubjectChatroom[]>(url, this.httpOptions);
+  }
+
+
+  getTeacherByUserId(idUser: number):Observable<Teacher>{
+    const url = 'http://localhost:8080/teacher/user/'+idUser;
+    return this.http.get<Teacher>(url, this.httpOptions)
+
+  }
+
+
+
+
 }

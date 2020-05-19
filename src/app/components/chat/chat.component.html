@@ -5,9 +5,16 @@
       <p class="date" *ngIf="setDate(getDate(msg.dateTime))">{{getDate(msg.dateTime)}}</p>
     <div class="messages" >
       <div class="container" *ngIf="msg.userId!=inputMessage.userId">
+
         <p class="user">{{msg.email}}</p>
-        <div class="messageContainer">
-          <div class="message">
+        <div class="messageContainer" *ngIf="msg.role=='pupil'" style="background-color: #4fa1bb; border-color: #317c94">
+          <div class="message" >
+            <p class="text">{{msg.message}}</p>
+          </div>
+          <p class="time">{{getTime(msg.dateTime)}}</p>
+        </div>
+        <div class="messageContainer"  *ngIf="msg.role=='teacher'"style="background-color: #32bb2e; border-color: #317c94">
+          <div class="message" >
             <p class="text">{{msg.message}}</p>
           </div>
           <p class="time">{{getTime(msg.dateTime)}}</p>
@@ -15,7 +22,9 @@
       </div>
 
       <div class="myContainer" *ngIf="msg.userId==inputMessage.userId">
-        <div class="messageContainer" style="background-color: #76a7bb; border-color: #317c94">
+
+        <div class="messageContainer"  style="background-color: #74aabb; border-color: #317c94">
+
           <div class="message">
             <p class="text" style="color:#2a455a">{{msg.message}}</p>
           </div>

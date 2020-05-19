@@ -1,6 +1,8 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {WebsocketService} from '../../services/webSocket/websocket.service';
 import {Message} from '../../domain/Message';
+import {User} from '../../domain/User';
+import {LoginService} from '../../services/login/login.service';
 
 @Component({
   selector: 'app-chat',
@@ -13,18 +15,26 @@ export class ChatComponent implements OnInit,OnChanges {
   inputMessage: Message;
   value: string;
   date: string;
+  user: User;
 
 
-  constructor(private service: WebsocketService) {
+  constructor(private service: WebsocketService ,private loginService: LoginService) {
   }
 
 
   ngOnInit(): void {
-    this.inputMessage = new Message(this.chatid, +localStorage.getItem('userId'), null, '', '');
+    this.loginService.getUserById(+localStorage.getItem('userId')).subscribe(user=>{
+
+        this.user=user;
+
+
+    this.inputMessage = new Message(this.chatid, +localStorage.getItem('userId'), null, '', '','');
     this.getMessages();
     this.service.eventEmitter.subscribe(() => {
       this.getMessages();
     }, {}, {});
+      }
+    );
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.ngOnInit();
@@ -67,6 +77,13 @@ export class ChatComponent implements OnInit,OnChanges {
   getUserName(msg: Message) {
     this.service.getStudentName(msg.userId).subscribe((user) => {
       msg.email = user.email.substring(0, user.email.indexOf('@'));
+      this.getUserRole(msg);
+    });
+  }
+  getUserRole(msg: Message){
+
+    this.loginService.getUserById(msg.userId).subscribe(u=>{
+      msg.role=u.role;
     });
   }
 
