@@ -1,0 +1,18 @@
+.int{
+  border-radius: 30px;
+  padding: 10px 5px 15px 5px;
+  margin-left: 4px;
+  border: 0px ;
+  width: 55%;
+  float:left;
+  text-align: center;
+  background-color: #bde1e9;
+  margin: 0px 0px 2px 7px;
+  font-size: 20px;
+
+}
+.addclass{
+
+  background-color: #2a596e;
+  font-size: 30px;
+}

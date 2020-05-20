@@ -1,7 +1,7 @@
 
 <div id="contain">
   <div class="sidenav">
-    <button class="sidebutton" *ngFor="let subclaschat of lista"  (click)="onSelect(subclaschat.chatroom.id)"> {{subclaschat.subject.name}} {{subclaschat.classroom.name}} </button>
+    <button class="sidebutton" *ngFor="let subclaschat of lista"  (click)="onSelect(subclaschat)"[class.selected]="selectedSubClasChat==subclaschat" > {{subclaschat.subject.name}} {{subclaschat.classroom.name}} </button>
 
 
   </div>
@@ -10,10 +10,13 @@
 
 
     <div class="main">
-      <h2 style="margin: 0px 0px 20px 0px; padding: 5px 5px 5px 5px ; font-family: Arial;"> Welcome Mr. {{teacher.lastname}} !</h2>
-      <app-chat class="container"[chatid]="selectedId"></app-chat>
+     <h2 style="margin: 0px 0px 20px 0px; padding: 5px 5px 5px 5px ; font-family: Arial;"> Welcome Mr. {{teacher.lastname}} !</h2>
+      <button class="quizzes" [routerLink]="['quiz-dashboard',selectedSubClasChat.id]">Manage Quizes</button>
+   <app-chat  class="container" [chatid]="selectedSubClasChat.chatroom.id"></app-chat>
+
+
+
 
     </div>
-
   </div>
 </div>

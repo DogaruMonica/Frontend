@@ -39,6 +39,8 @@ export class PupilDashboardComponent implements OnInit {
     this.classroomService.getClassroomSubjectChatrooms(this.classroomId).subscribe(lista=>{
       console.log("au venit x chaturi:"+ lista.length);
       this.subjchats=lista;
+      //de adaugat:
+      this.selectedId=lista[0].chatroom.id;
     })
 
   }

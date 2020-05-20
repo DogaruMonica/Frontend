@@ -1,0 +1,31 @@
+
+<mat-grid-list style="margin-top: 0px;" cols="4" gutterSize="1" rowHeight="350px">
+  <p style="margin: 10px 0px 10px 25px;padding: 0px 0px 0px 0px;">{{quiz.name}}</p>
+  <mat-grid-tile style="margin: 20px 0px 0px 25px">  <mat-card style="background-color: #edffef; margin: 5px 0px 0px 15px; " class="example-card">
+
+    <input class="int" type="text"  value= "{{questionToBeAdded.statement}}"[(ngModel)]="questionToBeAdded.statement">
+    <input class="intc" type="text"  value= "{{questionToBeAdded.correctAnswer}}"[(ngModel)]="questionToBeAdded.correctAnswer">
+    <input class="intw" type="text"  value= "{{questionToBeAdded.wrongAnswer1}}"[(ngModel)]="questionToBeAdded.wrongAnswer1">
+    <input class="intw" type="text"  value= "{{questionToBeAdded.wrongAnswer2}}"[(ngModel)]="questionToBeAdded.wrongAnswer2">
+    <input class="intw" type="text"  value= "{{questionToBeAdded.wrongAnswer3}}"[(ngModel)]="questionToBeAdded.wrongAnswer3">
+    <button style="background-color:#68b3db; border-radius: 50% ;width:40px;height: 40px;
+  border: 0px ;
+  background-color: #509fb7;
+  font-size: 30px; margin-left: 40%; margin-top: 5px; color: #2a596e" (click)="addQuestion()" >+</button>
+  </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile  style="margin: 0px 0px 0px 25px" *ngFor="let question of quiz.questions" >
+      <mat-card style="background-color: #edffef; margin: 0px 0px 0px 15px" class="example-card">
+
+      <input class="int" type="text"  value= "{{question.statement}}"[(ngModel)]="question.statement">
+      <input class="intc" type="text"  value= "{{question.correctAnswer}}"[(ngModel)]="question.correctAnswer">
+      <input class="intw" type="text"  value= "{{question.wrongAnswer1}}"[(ngModel)]="question.wrongAnswer1">
+      <input class="intw" type="text"  value= "{{question.wrongAnswer2}}"[(ngModel)]="question.wrongAnswer2">
+      <input class="intw" type="text"  value= "{{question.wrongAnswer3}}"[(ngModel)]="question.wrongAnswer3">
+      </mat-card>
+  </mat-grid-tile>
+
+</mat-grid-list>
+
+

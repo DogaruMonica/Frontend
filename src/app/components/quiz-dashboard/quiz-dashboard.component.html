@@ -1,0 +1,18 @@
+
+<div class="sidenav">
+  <button class="sidebutton" *ngFor="let quiz of quizzesForThisSubjectClass" (click)="onSelect(quiz.id)" [class.selected]="selectedQuizid==quiz.id">{{quiz.name}}</button>
+  <div id="addClassroom" *ngIf="activatedAdd==1">
+    <input class="int" type="text"  value= "{{quizToAdd.name}}"[(ngModel)]="quizToAdd.name">
+    <button id="tinyadd" (click)="addQuiz()" >+</button>
+  </div>
+  <button id="addclass" (click)="activateAdd()">+</button>
+  <button id="delclass" (click)="deleteQuiz()" >-</button>
+
+</div>
+<div class="main">
+
+
+  <app-questions [idQuiz]="selectedQuizid"></app-questions>
+</div>
+
+
