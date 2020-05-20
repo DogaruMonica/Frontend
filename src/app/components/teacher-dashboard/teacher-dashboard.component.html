@@ -1,22 +1,22 @@
+<body>
+<div class="header" >
+  <div >
+    <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;">Welcome Mr/Mrs.{{teacher.lastname}}</p>
+  </div>
+  <div class="topButtons" >
+    <button class="button" (click)="viewCatalog()">View Catalog</button>
+    <button class="button" (click)="logout()"> Logout</button>
+  </div>
+</div>
 
 <div id="contain">
   <div class="sidenav">
     <button class="sidebutton" *ngFor="let subclaschat of lista"  (click)="onSelect(subclaschat)"[class.selected]="selectedSubClasChat==subclaschat" > {{subclaschat.subject.name}} {{subclaschat.classroom.name}} </button>
-
-
   </div>
 
-  <div class="main">
 
-
-    <div class="main">
-     <h2 style="margin: 0px 0px 20px 0px; padding: 5px 5px 5px 5px ; font-family: Arial;"> Welcome Mr. {{teacher.lastname}} !</h2>
       <button class="quizzes" [routerLink]="['quiz-dashboard',selectedSubClasChat.id]">Manage Quizes</button>
-   <app-chat  class="container" [chatid]="selectedSubClasChat.chatroom.id"></app-chat>
+   <app-chat  class="container" style="position:fixed; margin-left: 300px;margin-top: 100px"  [chatid]="selectedSubClasChat.chatroom.id"></app-chat>
 
-
-
-
-    </div>
-  </div>
 </div>
+</body>

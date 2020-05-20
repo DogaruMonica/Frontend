@@ -31,7 +31,15 @@ export class ClassroomService {
   }
   addClassroom(classroom: Classroom){
     const url = 'http://localhost:8080/classroom/' ;
+
     return this.http.post<Classroom>(url, classroom,this.httpOptions);
+  }
+
+  addCatalog(classid: number){
+    const url2='http://localhost:8080/catalog/'+classid;
+    this.http.post<Classroom>(url2,this.httpOptions).subscribe(data=>{
+      console.log("id:"+data)
+    });
   }
   deleteClassroom(idClassroom:number){
     const url = 'http://localhost:8080/classroom/'+idClassroom;

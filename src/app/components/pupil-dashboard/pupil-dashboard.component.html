@@ -1,25 +1,52 @@
-
-<div style="">
-  <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;" >{{pupil.firstname}}</p>
-
+<div class="header">
+  <div style="">
+    <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;">{{pupil.firstname}}</p>
+  </div>
+  <div class="topButtons">
+    <button class="button" (click)="viewCatalog()">View Catalog</button>
+    <button class="button" (click)="logout()"> Logout</button>
+  </div>
 </div>
 
 
-
-<div id="materii"  *ngFor="let subchat of subjchats">
+<div id="materii" *ngFor="let subchat of subjchats">
   {{subchat.subject.name}}
 </div>
 
 
 <div id="contain">
   <div class="sidenav">
-    <button class="sidebutton" *ngFor="let subchat of subjchats"  (click)="onSelect(subchat.chatroom.id)"> {{subchat.subject.name}} </button>
+    <button class="sidebutton" *ngFor="let subchat of subjchats"
+            (click)="onSelect(subchat)"> {{subchat.subject.name}} </button>
 
   </div>
 
 </div>
 
-  <div class="main">
-    <app-chat class="container"[chatid]="selectedId"></app-chat>
+<div class="main">
+  <app-chat class="container" [chatid]="selectedId" style="margin-top: 90px" *ngIf="!hidden"></app-chat>
+</div>
+<div class="quizB">
+  <button class="quizButton" (click)="takeQuiz()" *ngIf="!hidden">Quiz</button>
+</div>
 
-  </div>
+<div class="catalog" *ngIf="hidden">
+  <table>
+    <thead>
+    <tr>
+      <th>Subject</th>
+      <th colspan="5">Grades</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr class="tr1" *ngFor="let subjectGrade of table">
+      <th class="head">{{subjectGrade.subject.subject.name}}</th>
+      <td class="cell" *ngFor="let gr of subjectGrade.grades">{{gr.grade}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+

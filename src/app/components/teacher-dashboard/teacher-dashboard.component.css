@@ -1,8 +1,9 @@
 .sidenav {
-  height: 100%;
+  height: 89%;
   width: 250px;
   position: fixed;
   z-index: 1;
+  margin-top: 87px;
   top: 0;
   left: 0;
   background-color: #2a455a;
@@ -137,4 +138,41 @@
   position: absolute;
   bottom:15px;
   right: 15px;
+}
+
+
+.topButtons {
+  position: fixed;
+  right: 5px;
+  display: flex;
+  height: 88px;
+  right: 0px;
+}
+
+.button{
+  width: 160px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #2a455a;
+  border: 0.8px solid #2a596e;
+  color: #e6e6e6;
+}
+.button:hover {
+  color: #f1f1f1;
+  background-color: #006680;
+  border: 0px;
+}
+.header{
+
+  top:0px;
+  position: fixed;
+  display: flex;
+  width: 101%;
+  height: 88px;
+  background-color:  #2a596e;
+  z-index: 1;
 }

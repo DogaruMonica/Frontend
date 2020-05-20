@@ -21,6 +21,15 @@ export class TeacherSubjectService {
   addTeacherSubjectToClass(tid: number,sid: number,cid: number):Observable<any>{
     const url = 'http://localhost:8080/classroom/' +cid +"/"+ sid+"/"+tid;
     console.log("service - addUser()")
+
+
+    const url2= 'http://localhost:8080/classroom/'+cid+'/subject/'+sid;
+    this.http.post<any>(url2, this.httpOptions).subscribe(data=>{
+      console.log("here");
+      console.log(data);
+
+    });
+
     return this.http.post<any>(url, this.httpOptions);
   }
 
@@ -28,4 +37,5 @@ export class TeacherSubjectService {
     const url = 'http://localhost:8080/classroomSubjectTeacher/' +cid;
     return this.http.get<any>(url, this.httpOptions);
   }
+
 }

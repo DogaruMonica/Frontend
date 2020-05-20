@@ -19,13 +19,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule, MatGridListModule} from '@angular/material';
 import { QuizDashboardComponent } from './components/quiz-dashboard/quiz-dashboard.component';
 import { QuestionsComponent } from './components/questions/questions.component';
+import { QuizPupilComponent } from './components/quiz-pupil/quiz-pupil.component';
+
 
 const APP_ROUTES: Routes = [
 
   {path: 'admin', component: AdminComponent},
   {path: 'subjects', component: SubjectsComponent},
   {path: 'teacher', component: TeacherDashboardComponent},
-  {path: 'pupil', component: PupilDashboardComponent},
+  {path: 'pupil/:done', component: PupilDashboardComponent},
+  {path: 'pupil/quiz/:id', component: QuizPupilComponent},
   {path: '', component: LoginComponent},
   {path: 'chat', component: ChatComponent},
   {path: 'teacher/quiz-dashboard/:id', component: QuizDashboardComponent}
@@ -46,7 +49,8 @@ const APP_ROUTES: Routes = [
     AddSubjectToClassroomComponent,
     QuizComponent,
     QuizDashboardComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    QuizPupilComponent,
   ],
   imports: [
     BrowserModule,

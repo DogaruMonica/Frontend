@@ -1,0 +1,39 @@
+<div class="header">
+  <div style="">
+    <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;">{{quiz.name}}</p>
+  </div>
+  <div class="topButtons">
+    <button class="button" (click)="goDashboard()">Dashboard</button>
+    <button class="button" (click)="logout()"> Logout</button>
+  </div>
+</div>
+
+<body>
+<div class="content">
+  <div>
+  <p style="font-family: Arial; color:brown"> Please be careful while submitting, once submitted there is no way back!</p>
+  <p style="font-family: Arial; color:brown"> Before submitting make sure that your last selection is the one you want to send!</p>
+  </div>
+  <div class="questions" *ngFor="let question of quiz.questions" >
+    <h4 class="question">{{question.statement}}</h4>
+    <div class="answers">
+      <div class="answer"  >
+        <input type="radio" name="radio" value="{{question.wrongAnswer1}}"  (change)="choose($event)"><p class="value" >{{question.wrongAnswer1}}</p>
+      </div>
+      <div class="answer" >
+        <input type="radio" name="radio"  value="{{question.correctAnswer}}" (change)="choose($event)" ><p  class="value">{{question.correctAnswer}}</p>
+      </div>
+      <div class="answer"  >
+        <input type="radio" name="radio" value="{{question.wrongAnswer2}}"(change)="choose($event)"><p  class="value" >{{question.wrongAnswer2}}</p>
+      </div>
+      <div class="answer"  >
+        <input type="radio" name="radio"  value="{{question.wrongAnswer3}}"(change)="choose($event)"><p  class="value">{{question.wrongAnswer3}}</p>
+      </div>
+    </div>
+    <button class="buttonSubmit" id="{{question.id}}" (click)="submit($event)">Submit</button>
+  </div>
+  <button class="buttonSubmit" (click)="getScore()">Send</button>
+  <p>Time Left: {{timeLeft}}</p>
+</div>
+
+</body>

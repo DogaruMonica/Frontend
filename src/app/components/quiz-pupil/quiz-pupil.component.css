@@ -1,0 +1,104 @@
+
+.topButtons {
+  position: fixed;
+  right: 5px;
+  display: flex;
+  height: 88px;
+  right: 0px;
+}
+
+.button{
+  width: 160px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #2a455a;
+  border: 0.8px solid #2a596e;
+  color: #e6e6e6;
+}
+.button:hover {
+  color: #f1f1f1;
+  background-color: #006680;
+  border: 0px;
+}
+.header{
+  margin: -10px;
+  position: fixed;
+  display: flex;
+  width: 101%;
+  height: 88px;
+  background-color:  #2a596e;
+  z-index: 1;
+}
+.content{
+  display: flex;
+  position: relative;
+  margin: 0px auto;
+  width: 800px;
+  top:77px;
+  min-height: 670px;
+  background-color: #bbccda;
+  border:1px solid #2a596e;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+.questions{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 500px;
+  min-height: 200px;
+  border-radius: 8px;
+  margin-top: 20px;
+  background-color: #76a7bb;
+  padding: 10px 20px;
+}
+.question{
+  font-family: Arial;
+  color: #f1f1f1;
+  font-size: 20px;
+}
+.answers{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 400px;
+  padding: 10px;
+  background-color: #2a455a;
+  border-radius: 10px;
+}
+
+.answer{
+  display: flex;
+  position: relative;
+  min-height: 20px;
+}
+.buttonSubmit{
+  margin-top: 10px;
+  width: 100px;
+  font-family: Arial;
+  font-size: 18px;
+  text-align: center;
+  background-color: #2a455a;
+  border: 0.8px solid #2a596e;
+  color: #e6e6e6;
+  height: 40px;
+  border-radius: 10px;
+}
+.buttonSubmit:hover {
+  color: #f1f1f1;
+  background-color: #006680;
+  border: 0px;
+}
+.value{
+  margin-top: 0px;
+  margin-left: 10px;
+  color: #f1f1f1;
+  font-family: Arial;
+  font-size: 15px;
+}
