@@ -1,6 +1,6 @@
 .sidenav {
   height: 100%;
-  width: 250px;
+  width: 150px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -8,7 +8,6 @@
   background-color: #2a455a;
   overflow-x: hidden;
   padding-top: 20px;
-  text-align: center;
 }
 
 .sidenav a {
@@ -42,7 +41,7 @@
   width: 70px;
   height: 70px;
   bottom: 108px;
-  left: 90px;
+  left: 50px;
 
 }
 
@@ -57,7 +56,7 @@
   width: 70px;
   height: 70px;
   bottom: 30px;
-  left: 90px;
+  left: 50px;
 
 }
 #addclass:hover{
@@ -88,13 +87,13 @@
 .int{
   border-radius: 30px;
   padding: 10px 5px 15px 5px;
-
+  margin-left: 4px;
   border: 0px ;
   width: 55%;
   float:left;
   text-align: center;
   background-color: #bde1e9;
-  margin: 0px 0px 2px 40px;
+  margin: 0px 0px 2px 7px;
   font-size: 20px;
 
 }
@@ -112,7 +111,9 @@
 
 }
 #subjects {
-  margin: 5px 0px 2px 20px;
+
+
+  margin: 5px 0px 2px 40px;
   border-radius: 20px;
   padding: 15px 15px 15px 15px;
   border: 0px;
@@ -120,21 +121,18 @@
   font-size: 15px;
   background-color: #cff5fd;
 }
-#contain{
+#subs{
 
+  position: absolute;
+  left:200px;
+  top:100px;
+}
 
+body{
+  width: 100%;
+  height: 100%;
 }
 .selected{
-  background-color: #37617b;
-}
-.quizzes{
-  border-radius: 20px;
-  padding: 15px 15px 15px 15px;
-  border: 0px;
-  font-family: Arial;
-  font-size: 25px;
-  background-color: #cff5fd;
-  position: absolute;
-  bottom:15px;
-  right: 15px;
+
+  backgroun-color:red;
 }

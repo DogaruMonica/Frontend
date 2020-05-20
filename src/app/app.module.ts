@@ -14,6 +14,11 @@ import { TeacherDashboardComponent } from './components/teacher-dashboard/teache
 import { PupilDashboardComponent } from './components/pupil-dashboard/pupil-dashboard.component';
 import {ChatComponent} from './components/chat/chat.component';
 import { AddSubjectToClassroomComponent } from './components/add-subject-to-classroom/add-subject-to-classroom.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule, MatGridListModule} from '@angular/material';
+import { QuizDashboardComponent } from './components/quiz-dashboard/quiz-dashboard.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 const APP_ROUTES: Routes = [
 
@@ -22,7 +27,8 @@ const APP_ROUTES: Routes = [
   {path: 'teacher', component: TeacherDashboardComponent},
   {path: 'pupil', component: PupilDashboardComponent},
   {path: '', component: LoginComponent},
-  {path: 'chat', component: ChatComponent}
+  {path: 'chat', component: ChatComponent},
+  {path: 'teacher/quiz-dashboard/:id', component: QuizDashboardComponent}
 ]
 
 @NgModule({
@@ -37,17 +43,23 @@ const APP_ROUTES: Routes = [
     PupilDashboardComponent,
     TeachersComponent,
     ChatComponent,
-    AddSubjectToClassroomComponent
+    AddSubjectToClassroomComponent,
+    QuizComponent,
+    QuizDashboardComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,TeacherDashboardComponent,]
 })
 export class AppModule {
 }
