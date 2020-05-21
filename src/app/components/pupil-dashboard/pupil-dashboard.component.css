@@ -199,13 +199,13 @@ table{
 }
 .cell{
   padding: 0px 0px;
-  width: 40px;
+  min-width: 40px;
 }
 .inCell{
   display: flex;
   position: static;
   margin: auto auto;
-  text-indent: 10px;
+  text-indent: 100px;
 }
 .topButtons {
   position: fixed;
