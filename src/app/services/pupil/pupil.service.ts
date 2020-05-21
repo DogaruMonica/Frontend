@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../../domain/User';
 import {Pupil} from '../../domain/Pupil';
+import {Classroom} from '../../domain/Classroom';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,16 @@ export class PupilService {
   getPupil(idPupil: number):Observable<Pupil>{
     const url = 'http://localhost:8080/pupil/'+idPupil;
     return this.http.get<Pupil>(url, this.httpOptions)
+
+  }
+  getPupilByUserId(idUser: number):Observable<Pupil>{
+    const url = 'http://localhost:8080/pupil/user/'+idUser;
+    return this.http.get<Pupil>(url, this.httpOptions)
+
+  }
+  getClassroomOfPupil(idPupil: number):Observable<Classroom>{
+    const url = 'http://localhost:8080/classroom/pupil/'+idPupil;
+    return this.http.get<Classroom>(url, this.httpOptions)
 
   }
 

@@ -1,5 +1,11 @@
 <body>
-
+<div class="header">
+  <div style="">
+  </div>
+  <div class="topButtons">
+    <button class="button" (click)="logout()"> Logout</button>
+  </div>
+</div>
 <div class="sidenav" *ngIf="showadmin==1">
   <button class="sidebutton" *ngFor="let classroom of clasrooms"  (click)="onSelect(classroom.id)"> {{classroom.name}} </button>
 
@@ -13,6 +19,7 @@
     <button id="subjects"  (click)="switch()">Subjects</button>
   </div>
 </div>
+
 
 
 <div class="main" *ngIf="showadmin==1">

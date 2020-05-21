@@ -1,0 +1,53 @@
+<body>
+<div class="header">
+  <div>
+    <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;">Welcome
+      Mr/Mrs.{{teacher.lastname}}</p>
+  </div>
+  <div class="topButtons">
+    <button class="button" (click)="viewCatalog()">View Catalog</button>
+    <button class="button" (click)="logout()"> Logout</button>
+  </div>
+</div>
+
+<div id="contain">
+  <div class="sidenav">
+    <button class="sidebutton" *ngFor="let subclaschat of lista" (click)="onSelect(subclaschat)"
+            [class.selected]="selectedSubClasChat==subclaschat"> {{subclaschat.subject.name}} {{subclaschat.classroom.name}} </button>
+  </div>
+
+
+  <button class="quizzes" [routerLink]="['quiz-dashboard',selectedSubClasChat.id]" *ngIf="!hidden">Manage Quizes</button>
+  <app-chat class="container" style="position:fixed; margin-left: 300px;margin-top: 100px" *ngIf="!hidden"
+            [chatid]="selectedSubClasChat.chatroom.id"></app-chat>
+  <div class="modifications">
+    <div class="catalog" *ngIf="hidden">
+      <table>
+        <thead>
+        <tr>
+          <th>Pupils</th>
+          <th colspan="10">Grades</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr class="tr1" *ngFor="let pupilGrade of pupilGrade" (click)="select(pupilGrade.pupil)"
+            [class.selected]="selectedRow.id==pupilGrade.pupil.id">
+          <th class="head">{{pupilGrade.pupil.lastname}} {{pupilGrade.pupil.firstname}}</th>
+          <td class="cell" *ngFor="let gr of pupilGrade.grade">
+            <p *ngIf="gr.grade==-1">-</p>
+            <p *ngIf="gr.grade!=-1">{{gr.grade}}</p></td>
+        </tr>
+        </tbody>
+      </table>
+
+    <div class="addGrade">
+      <input class="int" placeholder="Last Name" value="{{selectedRow.lastname}}" [(ngModel)]="selectedRow.lastname" disabled>
+      <input class="int" placeholder="First Name" value="{{selectedRow.firstname}}" [(ngModel)]="selectedRow.firstname" disabled>
+      <input class="int" placeholder="Grade" [(ngModel)]="newGrade.grade">
+      <button class="addGradeB" (click)="addGrade()">Add</button>
+    </div>
+    </div>
+  </div>
+</div>
+</body>

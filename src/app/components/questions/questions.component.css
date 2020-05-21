@@ -1,0 +1,253 @@
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #2a455a;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 30px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #92a3b1;
+  display: block;
+}
+
+.sidebutton{
+  width: 160px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0px;
+  color: #a0b1bf;
+
+}
+#addclass{
+  border-radius: 50%;
+  border: 0px ;
+  background-color: #37687a;
+  font-size: 30px;
+  color: #bbccda;
+
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  bottom: 108px;
+  left: 50px;
+
+}
+
+#delclass{
+  border-radius: 50%;
+  border: 0px ;
+  background-color: #37687a;
+  font-size: 30px;
+  color: #bbccda;
+
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  bottom: 30px;
+  left: 50px;
+
+}
+#addclass:hover{
+  color: #f1f1f1;
+  background-color: #317c94;
+}
+#delclass:hover{
+  color: #f1f1f1;
+  background-color: #317c94;
+}
+.sidebutton:hover {
+  color: #f1f1f1;
+  background-color: #2a596e;
+  border: 0px;
+}
+
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.int{
+
+  border-radius: 20px;
+  padding: 15px 15px 5px 5px;
+  margin-left: 0px;
+  border: 0px ;
+ max-width: 250px;
+  min-height: 10px;
+  float:left;
+  align: center;
+  text-align: center;
+  background-color: #b7e2fa;
+  margin: 0px 0px 10px 0px;
+  font-size: 20px;
+
+}
+.intc{
+
+  border-radius: 30px;
+  padding: 5px 5px 5px 5px;
+  margin-left: 0px;
+  border: 0px ;
+  width: 200px;
+  float:left;
+  text-align: center;
+  background-color: #9ee9c9;
+  margin: 5px 5px 5px 25px;
+  font-size: 20px;
+}
+.intw{
+
+  border-radius: 30px;
+  padding: 5px 5px 5px 5px;
+  margin-left: 0px;
+  border: 0px ;
+  width: 200px;
+  float:left;
+  text-align: center;
+  background-color: #e9a9ac;
+  margin: 5px 5px 5px 25px;
+  font-size: 20px;
+}
+#tinyadd{
+
+  border-radius: 50%;
+  border: 0px ;
+  background-color: #37687a;
+  font-size: 15px;
+  color: #bbccda;
+  float:left;
+  margin: 9px 0px 2px 8px;
+  width: 30px;
+  height: 30px;
+
+}
+#subjects {
+
+
+  margin: 5px 0px 2px 40px;
+  border-radius: 20px;
+  padding: 15px 15px 15px 15px;
+  border: 0px;
+  font-family: Arial;
+  font-size: 15px;
+  background-color: #cff5fd;
+}
+#subs{
+
+  position: absolute;
+  left:200px;
+  top:100px;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+}
+
+addq{
+
+  background-color: #9ee9c9;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#act{
+  background-color: #74aabb;
+  border-radius: 20px;
+ border: 0;
+  padding: 20px 20px 20px 20px;
+  position : absolute;
+  bottom: 30px;
+  right: 30px;
+  font-family: Arial;
+  font-size: 30px;
+  width: 200px;
+
+}
+#act1{
+  background-color: #38bb4a;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  border: 0;
+  position : absolute;
+  bottom: 30px;
+  right: 30px;
+  font-family: Arial;
+  width:200px;
+  font-size: 30px;
+}

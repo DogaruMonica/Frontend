@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Classroom} from '../../domain/Classroom';
 import {ClassroomService} from '../../services/classroom/classroom.service';
 import {Pupil} from '../../domain/Pupil';
+import {LoginService} from "../../services/login/login.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-admin',
@@ -10,18 +12,22 @@ import {Pupil} from '../../domain/Pupil';
 })
 export class AdminComponent implements OnInit {
   clasrooms: Classroom[];
-  classroom: Classroom={id:-1, teachers: null, pupils: null ,name:"Name"}
+  classroom: Classroom={id:-1, teachers: null, pupils: null ,name:"Name", catalog: null}
   idClassroom: number = -1;
   activatedAdd: number = -1;
   activatesubjects:number= -1;
   showadmin:number=1;
+  addcatalog: boolean = false;
 
 
-  constructor(private classroomService: ClassroomService) {
+  constructor(private classroomService: ClassroomService,private router:Router) {
 
   }
 
   ngOnInit() {
+    if(localStorage.getItem('userId')==""){
+      this.router.navigate(['']);
+    }
     this.update();
   }
 
@@ -46,9 +52,11 @@ export class AdminComponent implements OnInit {
     });
   }
   addClassroom(){
-    this.classroomService.addClassroom(this.classroom).subscribe(()=>{
+    this.classroomService.addClassroom(this.classroom).toPromise().then(data=>{
       this.activatedAdd=-1;
       this.update();
+      this.classroomService.addCatalog(data.id);
+
     })
 
   }
@@ -67,5 +75,9 @@ export class AdminComponent implements OnInit {
     this.showadmin=-1;
     this.update();
 
+  }
+  logout(){
+    localStorage.setItem('userId',"");
+    this.router.navigate(['']);
   }
 }

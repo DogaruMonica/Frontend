@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit, OnChanges {
         } else if (data.role == "teacher") {
           this.router.navigateByUrl('/teacher');
         } else {
-          this.router.navigateByUrl('/pupil');
+          this.router.navigateByUrl('/pupil/'+"-1");
         }
       }else{
           this.error = true;

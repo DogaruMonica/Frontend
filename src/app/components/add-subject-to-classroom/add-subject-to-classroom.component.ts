@@ -68,9 +68,10 @@ export class AddSubjectToClassroomComponent implements OnInit,OnChanges {
 
   addTeacherSubject() {
     this.teacherSubjectService.addTeacherSubjectToClass(this.teacherValue.id,this.subjectValue.id,this.idClassroom).subscribe(data=>{
-     this.teacherSubjectClassroom = data;
+     console.log(data);
       this.ngOnInit();
     });
+
     this.addComp = 0;
   }
 

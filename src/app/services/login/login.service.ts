@@ -20,8 +20,14 @@ export class LoginService {
   getUser(email: string, password: string): Observable<User> {
     console.log('Este in servie-login');
     const url = 'http://localhost:8080/user/login';
-    console.log(url);
     return this.http.post<User>(url,{email,password}, this.httpOptions);
+  }
+
+  getUserById( iduser: number):Observable<User>{
+    console.log('Este in servie-login get user by id cu id'+ iduser);
+    const url = 'http://localhost:8080/user/'+iduser;
+    return this.http.get<User>(url, this.httpOptions);
+
   }
 
 

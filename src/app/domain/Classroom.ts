@@ -8,4 +8,5 @@ export class Classroom{
   teachers: Teacher[];
   pupils: Pupil[];
   name: string;
+  catalog: Catalog;
 }
