@@ -28,4 +28,8 @@
 
 </mat-grid-list>
 
+<button  id="act" *ngIf="quiz.active==false" (click)="toggle()"> Active </button>
+<button  id="act1"    *ngIf="quiz.active==true" (click)="toggle()"> Active </button>
+
+
 

@@ -24,6 +24,12 @@ export class QuestionService {
 
   }
 
+  toggle(id:number){
+
+    const url = 'http://localhost:8080/quiz/'+id+'/toggleactive';
+    return this.http.put(url, this.httpOptions)
+  }
+
 
 
 

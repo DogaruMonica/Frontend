@@ -13,6 +13,7 @@ export class QuestionsComponent implements OnInit,OnChanges {
   @Input() idQuiz: number=-1;
 
   quiz:Quiz;
+  test: string="NOPE";
   questionToBeAdded:Question={id:-1,statement:'',correctAnswer:'',wrongAnswer1:'',wrongAnswer2:'',wrongAnswer3:''}
 
   constructor(private quizService:QuizService,private questionService: QuestionService) { }
@@ -27,6 +28,12 @@ export class QuestionsComponent implements OnInit,OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.ngOnInit();
   }
+  toggle(){
+    this.test="yup";
+    console.log(this.quiz.active)
+    this.questionService.toggle(this.idQuiz).subscribe(()=>{this.update(); console.log("DUPA TOGGLE"+ this.quiz.active)})
+
+  }
   getQuiz(){
     this.quizService.getQuizById(this.idQuiz).subscribe(q=>{
       this.quiz=q;
@@ -34,6 +41,7 @@ export class QuestionsComponent implements OnInit,OnChanges {
     })
 
   }
+
   addQuestion(){
     this.questionService.addQuestion(this.idQuiz,this.questionToBeAdded).subscribe(
       ()=>{

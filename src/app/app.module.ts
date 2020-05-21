@@ -16,10 +16,11 @@ import {ChatComponent} from './components/chat/chat.component';
 import { AddSubjectToClassroomComponent } from './components/add-subject-to-classroom/add-subject-to-classroom.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCardModule, MatGridListModule} from '@angular/material';
+import {MatCardModule, MatCheckboxModule, MatGridListModule, MatSlideToggleModule} from '@angular/material';
 import { QuizDashboardComponent } from './components/quiz-dashboard/quiz-dashboard.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { QuizPupilComponent } from './components/quiz-pupil/quiz-pupil.component';
+
 
 
 const APP_ROUTES: Routes = [
@@ -51,6 +52,8 @@ const APP_ROUTES: Routes = [
     QuizDashboardComponent,
     QuestionsComponent,
     QuizPupilComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -60,9 +63,11 @@ const APP_ROUTES: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule,
+    MatCheckboxModule
   ],
-  providers: [],
+  providers: [MatSlideToggleModule],
   bootstrap: [AppComponent,TeacherDashboardComponent,]
 })
 export class AppModule {
