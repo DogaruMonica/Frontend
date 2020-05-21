@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class AdminComponent implements OnInit {
   clasrooms: Classroom[];
-  classroom: Classroom={id:-1, teachers: null, pupils: null ,name:"Name"}
+  classroom: Classroom={id:-1, teachers: null, pupils: null ,name:"Name", catalog: null}
   idClassroom: number = -1;
   activatedAdd: number = -1;
   activatesubjects:number= -1;

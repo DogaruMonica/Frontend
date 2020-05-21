@@ -30,6 +30,8 @@ export class QuizPupilComponent implements OnInit {
       this.router.navigate(['']);
     }
     this.getQuiz();
+
+
     this.getPupilId();
     this.startTimer();
   }
@@ -40,21 +42,24 @@ export class QuizPupilComponent implements OnInit {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.getScore();
         this.quizPupilService.toggleActive(this.quiz.id);
         clearInterval(this.interval);
+        if (!this.finished) {
+          this.send()
+        }
       }
     }, 1000)
   }
 
   goDashboard() {
-    clearInterval(this.interval);
+    this.getScore();
     this.router.navigate(['pupil', this.quiz.id]);
   }
 
   getQuiz() {
     this.quizPupilService.getQuiz(this.id).subscribe(data => {
       this.quiz = data[0];
+
       this.quiz.questions = this.shuffle(this.quiz.questions);
     })
   }
@@ -65,6 +70,7 @@ export class QuizPupilComponent implements OnInit {
 
   submit(event) {
     this.questionId = event.target.id;
+    console.log(this.quiz.id);
     this.quizPupilService.sendQuestion(this.quiz.id, this.questionId, this.pupilId, this.answer).subscribe(data => {
     })
 
@@ -78,11 +84,14 @@ export class QuizPupilComponent implements OnInit {
     });
   }
 
+  send() {
+    this.goDashboard()
+  }
+
   getScore() {
     this.quizPupilService.getScore(this.quiz.id, this.pupilId).subscribe(data => {
       alert("your grade is: " + data);
       this.finished = true;
-      this.goDashboard()
     })
 
   }
@@ -106,7 +115,6 @@ export class QuizPupilComponent implements OnInit {
 
   logout() {
     localStorage.setItem('userId', "");
-    clearInterval(this.interval);
     this.router.navigate(['']);
   }
 }

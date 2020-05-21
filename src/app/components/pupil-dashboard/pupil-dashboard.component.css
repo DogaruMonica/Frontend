@@ -156,7 +156,9 @@
 
 
 }
-
+.selected{
+  background-color: #37617b;
+}
 .tr1:hover{
   color: #f1f1f1;
   background-color: #d8faff;
@@ -197,9 +199,14 @@ table{
 }
 .cell{
   padding: 0px 0px;
-  text-indent: 100px;
+  width: 40px;
 }
-
+.inCell{
+  display: flex;
+  position: static;
+  margin: auto auto;
+  text-indent: 10px;
+}
 .topButtons {
   position: fixed;
   right: 5px;
@@ -239,8 +246,9 @@ table{
   left: 30%;
   position: relative;
   background-color: #bbccda;
+  margin-top: 10px;
   width: 800px;
-  height: 800px;
+  min-height: 500px;
 }
 .row{
   display: flex;

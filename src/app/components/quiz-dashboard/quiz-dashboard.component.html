@@ -1,4 +1,12 @@
-
+<div class="header">
+  <div>
+    <p style="font-family: Arial; font-size: 50px; padding:0px 0px 20px 10px; margin-top: 10px;"></p>
+  </div>
+  <div class="topButtons">
+    <button class="button" (click)="goDashboard()">Dashboard</button>
+    <button class="button" (click)="logout()"> Logout</button>
+  </div>
+</div>
 <div class="sidenav">
 
   <button class="sidebutton" *ngFor="let quiz of quizzesForThisSubjectClass" (click)="onSelect(quiz.id)" [class.selected]="selectedQuizid==quiz.id">{{quiz.name}}</button>
@@ -14,8 +22,6 @@
 </div>
 
 <div class="main">
-
-
   <app-questions [idQuiz]="selectedQuizid"></app-questions>
 </div>
 

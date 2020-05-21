@@ -75,9 +75,11 @@
 
 
 .main {
+  position: static;
   margin-left: 160px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
+  margin-top: 100px;
 }
 
 @media screen and (max-height: 450px) {
@@ -135,4 +137,40 @@ body{
 .selected{
 
   backgroun-color:red;
+}
+
+.topButtons {
+  position: fixed;
+  right: 5px;
+  display: flex;
+  height: 88px;
+  right: 0px;
+}
+
+.button{
+  width: 160px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  background-color: #2a455a;
+  border: 0.8px solid #2a596e;
+  color: #e6e6e6;
+}
+.button:hover {
+  color: #f1f1f1;
+  background-color: #006680;
+  border: 0px;
+}
+.header{
+
+  top:0px;
+  position: fixed;
+  display: flex;
+  width: 101%;
+  height: 88px;
+  background-color:  #2a596e;
+  z-index: 1;
 }

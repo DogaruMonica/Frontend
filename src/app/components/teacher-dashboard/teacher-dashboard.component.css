@@ -89,13 +89,12 @@
 .int{
   border-radius: 30px;
   padding: 10px 5px 15px 5px;
-
   border: 0px ;
   width: 55%;
   float:left;
   text-align: center;
   background-color: #bde1e9;
-  margin: 0px 0px 2px 40px;
+  margin: 0px 0px 2px 10px;
   font-size: 20px;
 
 }
@@ -175,4 +174,79 @@
   height: 88px;
   background-color:  #2a596e;
   z-index: 1;
+}
+
+
+.tr1:hover{
+  color: #f1f1f1;
+  background-color: #d8faff;
+}
+.column{
+  padding: 5px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  height: 20px;
+}
+
+
+thead{
+  background-color: #76a7bb;
+  height: 90px;
+}
+
+td {
+  border: 1px solid #92a3b1;
+  border-collapse: collapse;
+  right: 300px;
+}
+th{
+  border: 1px solid #92a3b1;
+  border-collapse: collapse;
+  font-size: 30px;
+}
+tr{
+  height: 40px;
+}
+table{
+  width: 100% ;
+  background-color: #add1d9;
+  margin-left: 0px;
+  border: 1px solid #92a3b1;
+  border-collapse: collapse;
+  min-height: 50px;
+}
+.cell{
+  padding: 0px 0px;
+  text-indent: 100px;
+}
+.catalog{
+  display: flex;
+  left: 30%;
+  top: 100px;
+  position: relative;
+  width: 800px;
+  min-height: 400px;
+  flex-direction: column;
+}
+.in{
+  border:0px;
+  text-align: center;
+  font-family: Arial;
+  background: transparent;
+  font-size: 17px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+
+}
+.addGrade{
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+  margin-left: 0px;
+}
+.addGradeB{
+  margin: 0px 0px 2px 10px;
+  border-radius: 20px;
+  padding: 15px 15px 15px 15px;
+  border: 0px ;
+  background-color: #cff5fd;
 }

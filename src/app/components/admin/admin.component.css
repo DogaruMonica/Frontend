@@ -144,10 +144,10 @@ body{
 
 .button{
   width: 160px;
-  padding-top: 25px;
+  padding-top: 15px;
   padding-bottom: 15px;
   font-family: Arial;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
   text-align: center;
   background-color: #2a455a;
@@ -161,7 +161,7 @@ body{
   border: 0px;
 }
 .header{
-  margin: -25px;
+  margin: 0px;
   position: fixed;
   display: flex;
   width: 101%;

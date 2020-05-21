@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Classroom} from "../../domain/Classroom";
+import {Observable} from "rxjs";
+import {Grade} from "../../domain/Grade";
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +17,17 @@ export class CatalogService {
   constructor(private http: HttpClient) {
   }
 
-  getUserCatalog(userid: string){
+  getUserCatalog(userid: string):Observable<Grade[]>{
     const url = 'http://localhost:8080/grade/pupil/'+userid;
-    return this.http.get<any>(url, this.httpOptions);
+    return this.http.get<Grade[]>(url, this.httpOptions);
   }
-  getSubject(subjectid: number){
-    const url = 'http://localhost:8080/subject/'+subjectid;
-    return this.http.get<any>(url, this.httpOptions);
+  getUsersCatalog():Observable<Grade[]>{
+    const url = 'http://localhost:8080/grade/';
+    return this.http.get<Grade[]>(url, this.httpOptions);
+  }
+  addGrade ( grade: Grade):Observable<any>{
+    const url = 'http://localhost:8080/grade/';
+    return this.http.post<any>(url,grade, this.httpOptions);
   }
 
 }

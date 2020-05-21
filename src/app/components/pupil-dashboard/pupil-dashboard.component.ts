@@ -9,6 +9,8 @@ import {CatalogService} from "../../services/catalog/catalog.service";
 import {Grade} from "../../domain/Grade";
 import {SubjectGrade} from "../../domain/SubjectGrade";
 import {QuizPupilService} from "../../services/quizPupil/quiz-pupil.service";
+import {Subject} from "../../domain/Subject";
+import {PupilGrade} from "../../domain/PupilGrade";
 
 
 @Component({
@@ -27,6 +29,8 @@ export class PupilDashboardComponent implements OnInit {
   table: SubjectGrade[] = [];
   disableQuiz: number = 0;
   diasbledQuizs : number[]=[];
+  selectedRow : SubjectGrade;
+  maxNr: number;
 
   constructor(private loginservice: LoginService, private dataRoute: ActivatedRoute, private router: Router, private pupilService: PupilService,
               private classroomService: ClassroomService, private  catalogService: CatalogService, private quizPupilService: QuizPupilService) {
@@ -52,35 +56,52 @@ export class PupilDashboardComponent implements OnInit {
           this.classroomId = classroom.id;
           this.selectedId = classroom.id;
 
+
           this.getSubjectsChatrooms();
+
         })
       })
     })
 
   }
 
-
+  select(selected: SubjectGrade){
+    this.selectedRow=selected;
+}
   viewCatalog() {
     this.hidden = true;
     this.catalogService.getUserCatalog(localStorage.getItem('userId')).subscribe(grades => {
       this.grades = grades;
       let table = [];
-      this.match(table, grades);
+      this.maxNr =this.match(table, grades);
+      this.normalizeInput(table,this.maxNr)
       this.table = table;
     })
   }
+  normalizeInput(subjectGrades: SubjectGrade[], maxNr: number) {
+    subjectGrades.forEach(subjctGrade => {
+      while (subjctGrade.grades.length < maxNr) {
+        subjctGrade.grades.push(new Grade(-1));
 
-  match(table, grades: Grade[]) {
+      }
+    })
+  }
+
+  match(table, grades: Grade[]): number {
+    var maxNr=1;
     this.subjchats.forEach(function (subject) {
       var subjectGrade = new SubjectGrade(subject)
       grades.forEach(function (grade) {
         if (grade.subject == subject.subject.id) {
           subjectGrade.grades.push(grade);
-
         }
       })
+      if(subjectGrade.grades.length>maxNr){
+        maxNr=subjectGrade.grades.length;
+      }
       table.push(subjectGrade);
-    })
+    });
+    return maxNr
   }
 
   getSubjectsChatrooms() {
@@ -89,6 +110,7 @@ export class PupilDashboardComponent implements OnInit {
       this.subjchats = lista;
       this.selectedId = lista[0].chatroom.id;
       this.ClassroomSubjectChatroomId=lista[0].id;
+      this.selectedRow=  new SubjectGrade( lista[0]);
     })
 
   }

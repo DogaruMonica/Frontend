@@ -7,5 +7,8 @@ export class Grade{
   pupil: number;
   subject: number;
 
-  constructor(){}
+  constructor(grade: number){
+    this.grade=grade;
+  }
+
 }

@@ -22,6 +22,9 @@ export class QuizDashboardComponent implements OnInit ,OnChanges{
   constructor(private router:Router, private dataRoute: ActivatedRoute,private quizservice:QuizService) {this.idsubclaschat= Number(this.dataRoute.snapshot.paramMap.get('id')); }
 
   ngOnInit() {
+    if (localStorage.getItem('userId') == "") {
+      this.router.navigate(['']);
+    }
       this.update();
   }
   ngOnChanges(changes: SimpleChanges): void {
@@ -61,7 +64,9 @@ export class QuizDashboardComponent implements OnInit ,OnChanges{
     this.selectedQuizid=q;
 
   }
-
+  goDashboard() {
+    this.router.navigate(['teacher']);
+  }
 
   deleteQuiz() {
     this.quizservice.deleteQuiz( this.idsubclaschat).subscribe(()=> {
@@ -69,6 +74,9 @@ export class QuizDashboardComponent implements OnInit ,OnChanges{
     });
 
   }
-
+  logout() {
+    localStorage.setItem('userId', "");
+    this.router.navigate(['']);
+  }
 
 }

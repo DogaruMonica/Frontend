@@ -32,7 +32,7 @@ export class QuizPupilService {
     return this.http.get<number>(url,this.httpOptions);
   }
   toggleActive(id:number){
-    let url="http://localhost:8080/quiz/"+id+"/toggleactive";
-    return this.http.put<number>(url,this.httpOptions);
+    let url='http://localhost:8080/quiz/'+id+'/toggleactive'
+    return this.http.put(url,this.httpOptions);
   }
 }

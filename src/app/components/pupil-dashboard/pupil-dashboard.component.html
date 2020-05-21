@@ -16,7 +16,7 @@
 
 <div id="contain">
   <div class="sidenav">
-    <button class="sidebutton" *ngFor="let subchat of subjchats"
+    <button class="sidebutton" *ngFor="let subchat of subjchats"  [class.selected]="selectedId==subchat.chatroom.id"
             (click)="onSelect(subchat)"> {{subchat.subject.name}} </button>
 
   </div>
@@ -35,14 +35,18 @@
     <thead>
     <tr>
       <th>Subject</th>
-      <th colspan="5">Grades</th>
+      <th colspan="10">Grades</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr class="tr1" *ngFor="let subjectGrade of table">
+    <tr class="tr1" *ngFor="let subjectGrade of table" (click)="select(subjectGrade)"
+        [class.selected]="selectedRow.subject.id==subjectGrade.subject.id">
       <th class="head">{{subjectGrade.subject.subject.name}}</th>
-      <td class="cell" *ngFor="let gr of subjectGrade.grades">{{gr.grade}}</td>
+      <td class="cell" *ngFor="let gr of subjectGrade.grades">
+        <p class="inCell" *ngIf="gr.grade==-1">-</p>
+        <p class="inCell"*ngIf="gr.grade!=-1">{{gr.grade}}</p>
+      </td>
     </tr>
 
     </tbody>
